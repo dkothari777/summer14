@@ -5,25 +5,28 @@ public interface ISudokuSolver {
      *
      * ex.
      * -----------------------------------------
-     * || 0 | . | 3 || X | X | X || X | X | X ||
-     * || . | 4 | . || X | X | X || X | X | X ||
-     * || . | 1 | . || X | X | X || X | X | X ||
+     * || X | 9 | X || X | X | X || X | X | X ||
+     * || X | . | X || X | X | X || X | X | X ||
+     * || X | . | X || X | X | X || X | X | X ||
      * ||---------------------------------------
-     * || X | X | X || X | X | X || X | X | X ||
-     * || X | X | X || X | X | X || X | X | X ||
-     * || X | X | X || X | X | X || X | X | X ||
+     * || X | 4 | X || X | X | X || X | X | X ||
+     * || X | . | X || X | X | X || X | X | X ||
+     * || X | 7 | X || X | X | X || X | X | X ||
      * ||---------------------------------------
-     * || X | X | X || X | X | X || X | X | X ||
-     * || X | X | X || X | X | X || X | X | X ||
-     * || X | X | X || X | X | X || X | X | X ||
+     * || X | . | X || X | X | X || X | X | X ||
+     * || X | 1 | X || X | X | X || X | X | X ||
+     * || X | . | X || X | X | X || X | X | X ||
      * -----------------------------------------
      *
      * Key:
      * '.' = blank square
      * 'X' = pseudo values
      *
+     * This method takes in the whole board and the coordinates that 
+     * the column in question
+     *
      *  */
-    private int[] checkColumnPossible(int[][] board, int row, int col);
+    private int[] checkColumnPossible(int[][] board, int col);
 
     /* This method is to go through the row that the square is in and
      * compute the numbers needed to fill that square for the row.
@@ -47,9 +50,11 @@ public interface ISudokuSolver {
      * '.' = blank square
      * 'X' = pseudo values
      *
+     * This takes in the whole board, row, and column of the coordinates of the 
+     * value that is needed to be found. 
      *
      * */
-    private int[] checkRowPossible(int[][] board, int row, int col);
+    private int[] checkRowPossible(int[][] board, int row);
 
     /* This method is to go through the 3x3 square that the square is in
      * and compute the numbers needed to fill that blank square for the
@@ -83,5 +88,9 @@ public interface ISudokuSolver {
     private int[] checkSquarePossible(int[][] board, int row, int col);
 
     private int[] inclusion(int[] c, int[] r; int[] s);
+
+    private int[][] convertBoard(char[][] baord);
+
+    public boolean solvePuzzle(char[][] board);
 
 }

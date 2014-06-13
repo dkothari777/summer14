@@ -1,4 +1,5 @@
 package Projects;
+import java.util.List;
 
 public interface ISudokuSolver {
 
@@ -32,7 +33,7 @@ public interface ISudokuSolver {
      *      Returns an array: {0, 2, 3, 5, 6, 8}.
      *
      *  */
-    public int[] checkColumnPossible(int[][] board, int row, int col);
+    public boolean[] checkColumnPossible(int[][] board, int row, int col);
 
     /* This method is to go through the row that the square is in and
      * compute the numbers needed to fill that square for the row.
@@ -64,7 +65,7 @@ public interface ISudokuSolver {
      *      Return an array: {0, 2, 4, 7}.
      *
      * */
-    public int[] checkRowPossible(int[][] board, int row, int col);
+    public boolean[] checkRowPossible(int[][] board, int row, int col);
 
     /* This method is to go through the 3x3 square that the square is in
      * and compute the numbers needed to fill that blank square for the
@@ -95,7 +96,7 @@ public interface ISudokuSolver {
      *  Method Call: checkSquarePossible(board, 1, 1);
      *      returns an array: {2, 5, 6, 7, 8, 9}.
      * */
-    public int[] checkSquarePossible(int[][] board, int row, int col);
+    public boolean[] checkSquarePossible(int[][] board, int row, int col);
 
     /* This method is suppose use the arrays returned from checkSquarePossible,
      * checkColumnPossible, and checkRowPossible. Then find the inclusion of the sets
@@ -129,7 +130,7 @@ public interface ISudokuSolver {
      * The intersection of all of arrays will bring about possible numbers to put in the
      * square.
      * */
-    public int[] inclusion(int[] c, int[] r, int[] s);
+    public List<Integer> inclusion(boolean[] c, boolean[] r, boolean[] s);
 
     public boolean solvePuzzle(int[][] board);
 

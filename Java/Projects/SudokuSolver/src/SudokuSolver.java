@@ -14,7 +14,12 @@ public class SudokuSolver implements ISudokuSolver {
 
     @Override
     public List<Integer> inclusion(boolean[] c, boolean[] r, boolean[] s){
-        return null;
+       ArrayList<Integer> possible = new ArrayList<Integer>();
+       for(int i = 0; i < c.length; i++) {
+           if(!(c[i] || r[i] || s[i]))
+                   possible.add(i);
+       }
+       return possible;
     }
 
     @Override
